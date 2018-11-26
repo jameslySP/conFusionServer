@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -11,6 +12,14 @@ var leaderRouter = require('./routes/leaderRouter');
 var promoRouter = require('./routes/promoRouter');
 
 var app = express();
+
+const Dishes = require('./models/dishes');
+const vars = require('./vars');
+
+const connect = mongoose.connect(vars.MONGO_URL, {useNewUrlParser: true});
+connect.then((db) => {
+  console.log('Connected correctly to db server');
+}, (err) => { console.log(err) });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
