@@ -14,6 +14,8 @@ var promoRouter = require('./routes/promoRouter');
 var app = express();
 
 const Dishes = require('./models/dishes');
+const Promotions = require('./models/promotions');
+const Leaders = require('./models/leaders');
 const vars = require('./vars');
 
 const connect = mongoose.connect(vars.MONGO_URL, {useNewUrlParser: true});

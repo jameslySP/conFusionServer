@@ -33,7 +33,7 @@ dishRouter.route('/')
         res.end('PUT operation not supported on /dishes');
     })
     .delete((req, res, next) => {
-        Dishes.remove({})
+        Dishes.deleteMany({})
         .then((resp) => {
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
