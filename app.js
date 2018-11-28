@@ -42,45 +42,24 @@ app.use(session({
   store: new FileStore()
 }));
 
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+
 // basic auth
 function auth(req, res, next) {
   console.log(req.session);
 
-  // if user does not have signed cookie
+  // if user does not have session
   if (!req.session.user) {
-
-    // ask for basic auth
-    let authHeader = req.headers.authorization;
-    if (!authHeader) {
       let err = new Error('You are not authenticated!');
 
-      res.setHeader('WWW-Authenticate', 'Basic');
       err.status = 401;
       return next(err);
-    }
-
-    let auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
-    let username = auth[0];
-    let password = auth[1];
-
-    // give admin in session if given correct credentials
-    if (username === 'admin' && password === 'password') {
-      //res.cookie('user', 'admin', { signed: true });
-      req.session.user = 'admin';
-      next();
-    }
-    else {
-      let err = new Error('You entered the wrong user or password!');
-
-      res.setHeader('WWW-Authenticate', 'Basic');
-      err.status = 401;
-      return next(err);
-    }
   }
-  // has signed cookie
+  // has a session
   else {
-    // check if user is admin
-    if (req.session.user === 'admin') {
+    // check if user is logged in
+    if (req.session.user === 'authenticated') {
       next();
     }
     else {
