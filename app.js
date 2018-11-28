@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -30,14 +32,22 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser('12345-67890-09876-54321'));
+//app.use(cookieParser('12345-67890-09876-54321'));
+
+app.use(session({
+  name: 'session-id',
+  secret: '12345-67890-09876-54321',
+  saveUninitialized: false,
+  resave: false,
+  store: new FileStore()
+}));
 
 // basic auth
 function auth(req, res, next) {
-  console.log(req.signedCookies);
+  console.log(req.session);
 
   // if user does not have signed cookie
-  if (!req.signedCookies.user) {
+  if (!req.session.user) {
 
     // ask for basic auth
     let authHeader = req.headers.authorization;
@@ -53,9 +63,10 @@ function auth(req, res, next) {
     let username = auth[0];
     let password = auth[1];
 
-    // give admin cookie if given correct credentials
+    // give admin in session if given correct credentials
     if (username === 'admin' && password === 'password') {
-      res.cookie('user', 'admin', { signed: true });
+      //res.cookie('user', 'admin', { signed: true });
+      req.session.user = 'admin';
       next();
     }
     else {
@@ -69,7 +80,7 @@ function auth(req, res, next) {
   // has signed cookie
   else {
     // check if user is admin
-    if (req.signedCookies.user === 'admin') {
+    if (req.session.user === 'admin') {
       next();
     }
     else {
