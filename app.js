@@ -36,43 +36,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //app.use(cookieParser('12345-67890-09876-54321'));
 
-app.use(session({
-  name: 'session-id',
-  secret: '12345-67890-09876-54321',
-  saveUninitialized: false,
-  resave: false,
-  store: new FileStore()
-}));
-
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-// basic auth
-function auth(req, res, next) {
-  console.log(req.session);
-
-  // check if user is logged in
-  // req.user will be added in by passport.session()
-  if (!req.user) {
-      let err = new Error('You are not authenticated!');
-
-      err.status = 403;
-      return next(err);
-  }
-  else {
-    next();
-  }
-}
-
-app.use(auth);
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/dishes', dishRouter);
 app.use('/promotions', promoRouter);
 app.use('/leaders', leaderRouter);
