@@ -6,6 +6,8 @@ var logger = require('morgan');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const passport = require('passport');
+const authenticate = require('./authenticate');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -42,6 +44,9 @@ app.use(session({
   store: new FileStore()
 }));
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -49,25 +54,16 @@ app.use('/users', usersRouter);
 function auth(req, res, next) {
   console.log(req.session);
 
-  // if user does not have session
-  if (!req.session.user) {
+  // check if user is logged in
+  // req.user will be added in by passport.session()
+  if (!req.user) {
       let err = new Error('You are not authenticated!');
 
-      err.status = 401;
+      err.status = 403;
       return next(err);
   }
-  // has a session
   else {
-    // check if user is logged in
-    if (req.session.user === 'authenticated') {
-      next();
-    }
-    else {
-      let err = new Error('You are not admin!');
-
-      err.status = 401;
-      return next(err);
-    }
+    next();
   }
 }
 
