@@ -15,7 +15,12 @@ router.get('/', cors.corsWithOptions, function(req, res, next) {
 });
 
 router.post('/signup', cors.corsWithOptions, (req, res, next) => {
-  User.register(new User({username: req.body.username}), req.body.password,
+  User.register(new User({
+    username: req.body.username,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName
+  }), 
+  req.body.password,
   (err, user) => {
     if (err) {
       res.statusCode = 500;
@@ -37,7 +42,14 @@ router.post('/login', cors.corsWithOptions, passport.authenticate('local'), (req
   let token = authenticate.getToken({ _id: req.user._id });
   res.statusCode = 200;
   res.setHeader('Content-Type', 'application/json');
-  res.json({ success: true, token: token, status: 'You are successfully logged in' });
+  res.json({
+    success: true,
+    token: token,
+    status: 'You are successfully logged in',
+    username: req.body.username,
+    firstName: req.user.firstName,
+    lastName: req.user.lastName
+  });
 });
 
 router.get('/logout', (req, res) => {

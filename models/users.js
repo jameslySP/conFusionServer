@@ -6,6 +6,14 @@ const User = new Schema({
     admin: {
         type: Boolean,
         default: false
+    },
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
     }
 });
 
