@@ -1,4 +1,5 @@
-# example using express-generator
+# example using express-generator <br>
+from coursera https://www.coursera.org/learn/server-side-nodejs
 
 create express scaffolding
 ```
@@ -7,6 +8,22 @@ express conFusionServer
 cd conFusionServer
 npm install
 npm start
+```
+
+how to get OpenSSL on windows https://blog.didierstevens.com/2015/03/30/howto-make-your-own-cert-with-openssl-on-windows/
+
+OpenSSL commands for windows
+```
+genrsa -out private.key 1024
+req -new -key private.key -out cert.csr
+x509 -req -in cert.csr -signkey private.key -out certificate.pem
+```
+
+OpenSSL commands for Unix/Mac
+```
+openssl genrsa 1024 > private.key
+openssl req -new -key private.key -out cert.csr
+openssl x509 -req -in cert.csr -signkey private.key -out certificate.pem
 ```
 
 later turned to full fledge REST API after learning mongoose examples https://github.com/jameslySP/node-mongoose
