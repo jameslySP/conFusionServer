@@ -1,41 +1,37 @@
-# example using express-generator <br>
+## coursera link
 from coursera https://www.coursera.org/learn/server-side-nodejs
 
-# important lessons
-## Full REST API with Express, MongoDB, and Mongoose (video)
-## Part 1
-https://www.coursera.org/learn/server-side-nodejs/lecture/ceE9r/exercise-video-rest-api-with-express-mongodb-and-mongoose-part-1
-## Part 2
-https://www.coursera.org/learn/server-side-nodejs/lecture/w9ha9/exercise-video-rest-api-with-express-mongodb-and-mongoose-part-2
+## important lessons
+⋅⋅* Full REST API with Express, MongoDB, and Mongoose (video)
+⋅⋅* Part 1 https://www.coursera.org/learn/server-side-nodejs/lecture/ceE9r/exercise-video-rest-api-with-express-mongodb-and-mongoose-part-1
+⋅⋅* Part 2 https://www.coursera.org/learn/server-side-nodejs/lecture/w9ha9/exercise-video-rest-api-with-express-mongodb-and-mongoose-part-2
 
-## Full REST API with Express, MongoDB, and Mongoose (text)
-## Part 1
-https://www.coursera.org/learn/server-side-nodejs/supplement/XIMQE/exercise-instructions-rest-api-with-express-mongodb-and-mongoose-part-1
-## Part 2
-https://www.coursera.org/learn/server-side-nodejs/supplement/mpNR7/exercise-instructions-rest-api-with-express-mongodb-and-mongoose-part-2
+⋅⋅* Full REST API with Express, MongoDB, and Mongoose (text)
+⋅⋅* Part 1 https://www.coursera.org/learn/server-side-nodejs/supplement/XIMQE/exercise-instructions-rest-api-with-express-mongodb-and-mongoose-part-1
+⋅⋅* Part 2 https://www.coursera.org/learn/server-side-nodejs/supplement/mpNR7/exercise-instructions-rest-api-with-express-mongodb-and-mongoose-part-2
 
-## auth with passport (video)
+⋅⋅* auth with passport (video)
 https://www.coursera.org/learn/server-side-nodejs/lecture/B1EkT/exercise-video-user-authentication-with-passport
-## auth with passport (text)
+⋅⋅* auth with passport (text)
 https://www.coursera.org/learn/server-side-nodejs/supplement/F1GIQ/exercise-instructions-user-authentication-with-passport
 
-## JSON Web token (video)
+⋅⋅* JSON Web token (video)
 https://www.coursera.org/learn/server-side-nodejs/lecture/smZ4q/exercise-video-user-authentication-with-passport-and-json-web-token
-# JSON Web token (text)
+⋅⋅* JSON Web token (text)
 https://www.coursera.org/learn/server-side-nodejs/supplement/y3zWc/exercise-instructions-user-authentication-with-passport-and-json-web-token
 
-# maybe look into before deploying
-## HTTPS server (video)
+## maybe look into before deploying
+⋅⋅* HTTPS server (video)
 https://www.coursera.org/learn/server-side-nodejs/lecture/14M6u/exercise-video-https-and-secure-communication
-## HTTPS server (text)
+⋅⋅* HTTPS server (text)
 https://www.coursera.org/learn/server-side-nodejs/supplement/H5RKY/exercise-instructions-https-and-secure-communication
 
-## Cross Origin Resource Sharing (video)
+⋅⋅* Cross Origin Resource Sharing (video)
 https://www.coursera.org/learn/server-side-nodejs/lecture/egbQ1/exercise-video-cross-origin-resource-sharing
-## Cross Origin Resource Sharing (text)
+⋅⋅* Cross Origin Resource Sharing (text)
 https://www.coursera.org/learn/server-side-nodejs/supplement/lHl20/exercise-instructions-cross-origin-resource-sharing
 
-# cmd line notes
+## cmd line notes
 
 create express scaffolding
 ```
