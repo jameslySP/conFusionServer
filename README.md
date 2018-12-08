@@ -1,3 +1,12 @@
+## requires vars.js in root directory
+in the file
+```
+module.exports = {
+    SECRET_KEY: '12345-67890-09876-54321',
+    MONGO_URL: 'your mongo url'
+}
+```
+
 ## coursera link
 from coursera https://www.coursera.org/learn/server-side-nodejs
 

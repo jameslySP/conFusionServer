@@ -40,3 +40,9 @@ exports.jwtPassport = passport.use(new JwtStrategy(opts,
 
 // used to verify a user's token
 exports.verifyUser = passport.authenticate('jwt', { session: false});
+
+// verify if user is admin 
+exports.verifyAdmin = (req, res, next) => {
+    console.log('verifyAdmin');
+    console.log(req);
+}

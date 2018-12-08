@@ -18,16 +18,16 @@ var promoRouter = require('./routes/promoRouter');
 var app = express();
 
 // check all requests to make sure it goes to HTTPS
-app.all('*', (req, res, next) => {
-  // already a secure req if it has secure property
-  if (req.secure) {
-    return next();
-  }
-  else {
-    // 307 status code for service residing in a different url
-    res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url);
-  }
-});
+// app.all('*', (req, res, next) => {
+//   // already a secure req if it has secure property
+//   if (req.secure) {
+//     return next();
+//   }
+//   else {
+//     // 307 status code for service residing in a different url
+//     res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url);
+//   }
+// });
 
 // const Dishes = require('./models/dishes');
 // const Promotions = require('./models/promotions');
