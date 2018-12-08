@@ -7,6 +7,9 @@ module.exports = {
 }
 ```
 
+## remember to use "npm install" before you start server
+## use "npm start" to start server
+
 ## coursera link
 from coursera https://www.coursera.org/learn/server-side-nodejs
 
