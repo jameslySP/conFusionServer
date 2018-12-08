@@ -1,5 +1,5 @@
 ## requires vars.js in root directory
-in the file
+in the vars.js file
 ```
 module.exports = {
     SECRET_KEY: '12345-67890-09876-54321',
@@ -50,6 +50,7 @@ how to get OpenSSL on windows https://blog.didierstevens.com/2015/03/30/howto-ma
 
 OpenSSL commands for windows
 ```
+cd bin
 genrsa -out private.key 1024
 req -new -key private.key -out cert.csr
 x509 -req -in cert.csr -signkey private.key -out certificate.pem
@@ -57,6 +58,7 @@ x509 -req -in cert.csr -signkey private.key -out certificate.pem
 
 OpenSSL commands for Unix/Mac
 ```
+cd bin
 openssl genrsa 1024 > private.key
 openssl req -new -key private.key -out cert.csr
 openssl x509 -req -in cert.csr -signkey private.key -out certificate.pem
